@@ -1,5 +1,6 @@
 package jr.eder.developer.example.com.hackbbva;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import devlight.io.library.ArcProgressStackView;
+import jr.eder.developer.example.com.hackbbva.ui.ChooseActionActivity;
+import jr.eder.developer.example.com.hackbbva.ui.PotentialRobersActivity;
 
 public class SeguridadActivity extends AppCompatActivity {
     @BindView(R.id.apsv_presentation)
@@ -18,11 +21,15 @@ public class SeguridadActivity extends AppCompatActivity {
     private int[]
             mStartColors = new int[MODEL_COUNT];
     private int[] mEndColors = new int[MODEL_COUNT];
+    private Bundle bundle;
+    private String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seguridad);
         ButterKnife.bind(this);
+        id=bundle.getString("Algo");
+        bundle = getIntent().getExtras();
     }
     public void setArcProgressStackViewValues(){
 
@@ -44,8 +51,14 @@ public class SeguridadActivity extends AppCompatActivity {
         arcProgressStackView.animateProgress();
 
 
+    }
 
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this,
+                PotentialRobersActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

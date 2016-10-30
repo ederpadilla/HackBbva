@@ -59,7 +59,7 @@ public class PotentialRobersActivity extends AppCompatActivity {
                     Log.i("Perfil activity", "Pulsado el elemento " + recyclerView.getChildAdapterPosition(v));
                     Sospechosos cliente = clienteList.get(recyclerView.getChildAdapterPosition(v));
                     Intent intent = new Intent(PotentialRobersActivity.this,MainActivity.class);
-                    intent.putExtra("Algo",cliente.getEstado());
+                    intent.putExtra("Algo",cliente.getId());
                     startActivity(intent);
                     finish();
                 }
