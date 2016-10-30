@@ -22,14 +22,14 @@ public class ChooseActionActivity extends AppCompatActivity {
     @OnClick(R.id.btn_posibles_clientes)
     public void startClients(){
         Intent intent = new Intent(this,
-                MainActivity.class);
+                PotentialClientsActivity.class);
         startActivity(intent);
         finish();
     }
     @OnClick(R.id.btn_seguridad)
     public void startSeguridad(){
         Intent intent = new Intent(this,
-                SeguridadActivity.class);
+                PotentialRobersActivity.class);
         startActivity(intent);
         finish();
     }

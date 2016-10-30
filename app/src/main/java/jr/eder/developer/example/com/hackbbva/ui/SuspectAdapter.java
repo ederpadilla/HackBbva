@@ -17,35 +17,35 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import jr.eder.developer.example.com.hackbbva.R;
 import jr.eder.developer.example.com.hackbbva.models.Cliente;
+import jr.eder.developer.example.com.hackbbva.models.Sospechosos;
 
 /**
  * Created by ederpadilla on 30/10/16.
  */
 
-public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.TitularesViewHolder>
+public class SuspectAdapter extends RecyclerView.Adapter<SuspectAdapter.TitularesViewHolder>
         implements View.OnClickListener{
 
     private View.OnClickListener listener;
-    private List<Cliente> datos;
+    private List<Sospechosos> datos;
     private Context context;
 
-    public ClientsAdapter(List<Cliente> datos, Context context) {
+    public SuspectAdapter(List<Sospechosos> datos, Context context) {
         this.datos = datos;
         this.context = context;
     }
 
 
     @Override
-    public TitularesViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public SuspectAdapter.TitularesViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_rec_cliente, viewGroup, false);
-
-        TitularesViewHolder titularesViewHolder = new TitularesViewHolder(itemView);
+        SuspectAdapter.TitularesViewHolder titularesViewHolder = new SuspectAdapter.TitularesViewHolder(itemView);
         return titularesViewHolder;
     }
     @Override
-    public void onBindViewHolder(TitularesViewHolder viewHolder, int pos) {
-        Cliente item = datos.get(pos);
+    public void onBindViewHolder(SuspectAdapter.TitularesViewHolder viewHolder, int pos) {
+        Sospechosos item = datos.get(pos);
         viewHolder.bindTitular(item);
     }
 
@@ -56,7 +56,6 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.Titulare
 
     public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;
-
         Log.e("entra al click ","tio");
     }
 
@@ -65,16 +64,17 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.Titulare
         if (listener != null)
             listener.onClick(view);
         Log.e("entra al click ","tio");
+        TitularesViewHolder titularesViewHolder = new TitularesViewHolder(view);
 
     }
     public class TitularesViewHolder
             extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_status)
-         TextView tv_status;
+        TextView tv_status;
         @BindView(R.id.img_status)
-         ImageView imgv_status;
+        ImageView imgv_status;
         @BindView(R.id.layout_container)
-         LinearLayout linearLayout;
+        LinearLayout linearLayout;
         @BindView(R.id.client_image)
         CircleImageView client_image;
         private View rootView;
@@ -88,8 +88,8 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.Titulare
         /**
          * Set text to the headers and also set the background .
          **/
-        public void bindTitular(Cliente cliente) {
-            rootView.setOnClickListener(ClientsAdapter.this);
+        public void bindTitular(Sospechosos cliente) {
+            rootView.setOnClickListener(SuspectAdapter.this);
             if (cliente.getEstado()==0){
                 linearLayout.setBackgroundColor(linearLayout.getResources().getColor(R.color.bluewhitesix));
                 tv_status.setText("Bajo potencial");

@@ -6,6 +6,12 @@ package jr.eder.developer.example.com.hackbbva.models;
 
 public class Cliente {
     private int estado;
+    String id;
+
+    public Cliente(int estado, String id) {
+        this.estado = estado;
+        this.id = id;
+    }
 
     public Cliente() {
     }
@@ -22,4 +28,19 @@ public class Cliente {
         this.estado = estado;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "estado=" + estado +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }
