@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_choose_action"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/background"
+    tools:context="jr.eder.developer.example.com.hackbbva.ui.ChooseActionActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="Seguridad"
+        android:id="@+id/btn_seguridad"
+        android:elevation="6dp"
+        android:background="@drawable/my_choose_bg_ripple"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:elevation="6dp"
+        android:layout_marginTop="30dp"
+        android:text="Analizar posibles clientes"
+        android:id="@+id/btn_posibles_clientes"
+        android:background="@drawable/my_choose_bg_ripple"/>
+
+</LinearLayout>

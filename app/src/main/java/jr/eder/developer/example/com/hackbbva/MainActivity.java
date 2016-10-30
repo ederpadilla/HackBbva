@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
         arcProgressStackView.setIsRounded(true);
         List<ArcProgressStackView.Model> models = new ArrayList<>();
-        models.add(new ArcProgressStackView.Model("Molestia", 70, Color.parseColor(bgColors[0]), mStartColors[3]));
+        models.add(new ArcProgressStackView.Model("Enojo", 70, Color.parseColor(bgColors[0]), mStartColors[3]));
         models.add(new ArcProgressStackView.Model("Desprecio", 23, Color.parseColor(bgColors[1]), mStartColors[2]));
         models.add(new ArcProgressStackView.Model("Neutral", 23, Color.parseColor(bgColors[2]), mStartColors[1]));
         models.add(new ArcProgressStackView.Model("Felicidad", 35, Color.parseColor(bgColors[3]), mStartColors[0]));

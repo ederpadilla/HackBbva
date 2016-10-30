@@ -5,10 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 import jr.eder.developer.example.com.hackbbva.R;
 import jr.eder.developer.example.com.hackbbva.models.Cliente;
 
@@ -60,51 +65,43 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientsAdapter.Titulare
     }
     public class TitularesViewHolder
             extends RecyclerView.ViewHolder {
-        private View rootView;
-        private TextView txtTitulo;
-        private TextView txtSubtitulo;
-        private View mContainer;
+        @BindView(R.id.tv_status)
+         TextView tv_status;
+        @BindView(R.id.img_status)
+         ImageView imgv_status;
+        @BindView(R.id.layout_container)
+         LinearLayout linearLayout;
+        @BindView(R.id.client_image)
+        CircleImageView client_image;
 
         public TitularesViewHolder(View itemView) {
             super(itemView);
-            rootView = itemView;
-            txtTitulo = (TextView) itemView.findViewById(R.id.LblTitulo);
-            txtSubtitulo = (TextView) itemView.findViewById(R.id.LblSubTitulo);
-            mContainer = itemView.findViewById(R.id.layout_container);
-
+            ButterKnife.bind(this,itemView);
         }
 
         /**
          * Set text to the headers and also set the background .
          **/
         public void bindTitular(Cliente cliente) {
-            txtTitulo.setText(visita.getNombre());
-            txtSubtitulo.setText(visita.getDireccion());
-            if (visita.getTipo().trim().equalsIgnoreCase(Constants.VISITA_TIPO_PROGRAMADA)) {
-                mContainer.setBackgroundColor(mContainer.getResources().getColor(R.color.visita_programada));
-            } else if (visita.getTipo().trim().equalsIgnoreCase(Constants.VISITA_TIPO_FINALIZADA)) {
-                mContainer.setBackgroundColor(mContainer.getResources().getColor(R.color.visitas_finalizadas));
-            } else {
-                mContainer.setBackgroundColor(mContainer.getResources().getColor(R.color.white));
+            if (cliente.getEstado()==0){
+                linearLayout.setBackgroundColor(linearLayout.getResources().getColor(R.color.bluewhitesix));
+                tv_status.setText("Bajo potencial");
+                imgv_status.setImageResource(R.drawable.ic_sentiment_dissatisfied);
+            }else if (cliente.getEstado()==1){
+                linearLayout.setBackgroundColor(linearLayout.getResources().getColor(R.color.bluewhitefive));
+                tv_status.setText("Potencial Medio");
+                imgv_status.setImageResource(R.drawable.ic_sentiment_neutral);
+            }else if(cliente.getEstado()==2){
+                linearLayout.setBackgroundColor(linearLayout.getResources().getColor(R.color.bluewhitefive));
+                tv_status.setText("Potencial medio");
+                imgv_status.setImageResource(R.drawable.ic_sentiment_neutral);
+            }else if (cliente.getEstado()==3){
+                linearLayout.setBackgroundColor(linearLayout.getResources().getColor(R.color.bluewhitefour));
+                tv_status.setText("Buen potencial");
+                imgv_status.setImageResource(R.drawable.ic_sentiment_yes);
             }
-            rootView.setOnClickListener(AdaptadorVisitas.this);
+
         }
-        public int checkClientStatus(Cliente cliente){
-            int status =0;
-            switch (status) {
-                case 1:
-                    status=0;
-                    break;
-                case 2:
-                    status=1;
-                case 3:
-                    status=2;
-                    break;
-                case 4:
-                    status=3;
-                    break;
-            }
-            return status;
-        }
+
     }
 }
