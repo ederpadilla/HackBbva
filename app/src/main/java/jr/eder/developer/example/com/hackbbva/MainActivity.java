@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setArcProgressStackViewValues();
-        id=bundle.getString("Algo");
         bundle = getIntent().getExtras();
+        id=bundle.getString("Algo");
     }
 
     @Override

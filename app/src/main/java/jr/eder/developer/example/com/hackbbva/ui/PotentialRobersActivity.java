@@ -44,10 +44,10 @@ public class PotentialRobersActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
             suspectAdapter = new SuspectAdapter(clienteList,this);
             recyclerView.setAdapter(suspectAdapter);
-            Sospechosos sospechosos = new Sospechosos(0,"sdf");
-            Sospechosos sospechosos1 = new Sospechosos(1,"sdf");
-            Sospechosos sospechosos2 = new Sospechosos(2,"sdf");
-            Sospechosos sospechosos3 = new Sospechosos(3,"sdf");
+            Sospechosos sospechosos = new Sospechosos(0,"sdsdf");
+            Sospechosos sospechosos1 = new Sospechosos(1,"sdsasddf");
+            Sospechosos sospechosos2 = new Sospechosos(2,"sdsfdf");
+            Sospechosos sospechosos3 = new Sospechosos(3,"sdsdfrf");
             clienteList.add(sospechosos);
             clienteList.add(sospechosos1);
             clienteList.add(sospechosos2);

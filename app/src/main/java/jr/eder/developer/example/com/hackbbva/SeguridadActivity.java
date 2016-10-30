@@ -28,8 +28,8 @@ public class SeguridadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seguridad);
         ButterKnife.bind(this);
-        id=bundle.getString("Algo");
         bundle = getIntent().getExtras();
+        id=bundle.getString("Algo");
     }
     public void setArcProgressStackViewValues(){
 
